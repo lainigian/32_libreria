@@ -45,7 +45,8 @@ public class Libro implements Serializable
     {
         this.titolo=titolo;
         this.autore=autore;
-        this.numeroPagine=numeroPagine;
+        this.numeroPagine=0;
+        setNumeroPagine(numeroPagine);
     }
     
   /**
@@ -93,6 +94,11 @@ public class Libro implements Serializable
         this.titolo=titolo;
     }
     
+    public double getCostoFisso()
+    {
+        return COSTO_FISSO;
+    }
+    
     /**
      * restituisce l'autore del libro
      * @return autore
@@ -126,7 +132,8 @@ public class Libro implements Serializable
      */
     public void setNumeroPagine(int numeroPagine)
     {
-        this.numeroPagine=numeroPagine;
+        if (numeroPagine>0)
+            this.numeroPagine=numeroPagine;
     }
     
     /**
@@ -179,8 +186,7 @@ public class Libro implements Serializable
             return true;
         else
             return false;
-              
-            
+
     }
 }
  

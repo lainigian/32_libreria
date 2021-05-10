@@ -168,4 +168,25 @@ public class Mensola implements Serializable
         return false;
     }
     
+    public boolean equals(Object o)
+    {
+        Mensola m=(Mensola)o;
+        Libro l;
+        for (int i=0;i<NUM_MAX_VOLUMI;i++)
+        {
+            if (volumi[i]==null)
+            {
+                if (m.getVolume(i)!=null)   //se in posizione i quasta mensola non ha il libro e invece m ha il libro
+                    return false;
+            }
+            else
+            {
+                l=m.getVolume(i);
+                if (l==null || volumi[i].equals(l)==false)  //se in posizione i questa mensola ha il libro e invece m non ha il libro oppure ha un libro diverso
+                    return false;
+            }
+        }
+        return true;
+    }
+    
 }
