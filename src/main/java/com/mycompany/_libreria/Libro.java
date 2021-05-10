@@ -155,7 +155,8 @@ public class Libro implements Serializable
      */
     public static void setCostoPagina(double costo)
     {
-        costoPagina=costo; 
+        if (costo>=0)
+            costoPagina=costo; 
         
     }
     
