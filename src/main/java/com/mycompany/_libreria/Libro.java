@@ -132,7 +132,7 @@ public class Libro implements Serializable
      */
     public void setNumeroPagine(int numeroPagine)
     {
-        if (numeroPagine>0)
+        if (numeroPagine>=0)
             this.numeroPagine=numeroPagine;
     }
     

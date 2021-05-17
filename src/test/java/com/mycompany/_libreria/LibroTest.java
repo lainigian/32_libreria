@@ -36,7 +36,7 @@ public class LibroTest
         
         atteso="I promessi sposi";
         attuale=promessiSposi.getTitolo();
-        assertEquals("Libro senza titolo", atteso,attuale);
+        assertEquals("Libro con titolo", atteso,attuale);
     }
 
     /**
@@ -61,21 +61,49 @@ public class LibroTest
      * Test of getCostoFisso method, of class Libro.
      */
     @Test
-    public void testGetCostoFisso() {
+    public void testGetCostoFisso() 
+    {
+        Libro l=libroVuoto;
+        double atteso,attuale;
+        atteso=5.5;
+        attuale=l.getCostoFisso();
+        assertEquals("GetCosto fisso",attuale, attuale, 0.001);
     }
 
     /**
      * Test of getAutore method, of class Libro.
      */
     @Test
-    public void testGetAutore() {
+    public void testGetAutore() 
+    {
+        Libro l1=libroVuoto;
+        String atteso="";
+        String attuale=l1.getAutore();
+        assertEquals("Autore libro senza autore", atteso,attuale);
+        
+        l1=promessiSposi;
+        atteso="Manzoni";
+        attuale=l1.getAutore();
+        assertEquals("Autore libro com autore", atteso,attuale); 
     }
 
     /**
      * Test of setAutore method, of class Libro.
      */
     @Test
-    public void testSetAutore() {
+    public void testSetAutore() 
+    {
+        Libro l1=libroVuoto;        
+        l1.setAutore("Manzoni");
+        String atteso="Manzoni";
+        String attuale=l1.getAutore();
+        assertEquals("setAutore Manzoni", atteso,attuale); 
+        
+        l1.setAutore("Dante");
+        atteso="Dante";
+        attuale=l1.getAutore();
+        assertEquals("setAutore Dante", atteso,attuale); 
+        
     }
 
     /**
@@ -106,7 +134,23 @@ public class LibroTest
      * Test of setNumeroPagine method, of class Libro.
      */
     @Test
-    public void testSetNumeroPagine() {
+    public void testSetNumeroPagine() 
+    {
+       Libro l=promessiSposi;
+       l.setNumeroPagine(450);
+       int atteso=450;
+       int attuale=l.getNumeroPagine();
+       assertEquals("setNumeroPagine 450",atteso, attuale);
+       
+       l.setNumeroPagine(-1);
+       attuale=450;
+       atteso=l.getNumeroPagine();
+       assertEquals("setNumeroPagine -1",atteso, attuale);
+        
+       l.setNumeroPagine(0);
+       atteso=0;
+       attuale=l.getNumeroPagine();
+       assertEquals("setNumeroPagine 0",atteso, attuale);
     }
 
     /**
@@ -160,14 +204,29 @@ public class LibroTest
      * Test of getCostoPagina method, of class Libro.
      */
     @Test
-    public void testGetCostoPagina() {
+    public void testGetCostoPagina() 
+    {
+        double atteso=0.05;
+        double attuale=Libro.getCostoPagina();
+        assertEquals("getCostoPagina metodo statico",atteso, attuale,0.001);
     }
 
     /**
      * Test of toString method, of class Libro.
      */
     @Test
-    public void testToString() {
+    public void testToString() 
+    {
+       Libro l1=libroVuoto;
+       String atteso=";;0 pagine";
+       String attuale=l1.toString();
+       assertEquals("metodo toString libro vuoto",attuale, atteso);
+       
+       l1=promessiSposi;
+       atteso="I promessi sposi;Manzoni;500 pagine";
+       attuale=l1.toString();
+       assertEquals("Metodo toString I promessi sposi",atteso, attuale);
+        
     }
 
     /**

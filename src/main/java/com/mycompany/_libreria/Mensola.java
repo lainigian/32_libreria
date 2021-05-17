@@ -109,11 +109,11 @@ public class Mensola implements Serializable
         {
              return new Libro(volumi[posizione]);
         }
-      /*  catch (ArrayIndexOutOfBoundsException posizioneNonValida)
+        catch (ArrayIndexOutOfBoundsException posizioneNonValida)
         {
             return null;
         }
-        */
+        
         catch (NullPointerException posizioneVuota)
         {
             return null;
@@ -161,7 +161,7 @@ public class Mensola implements Serializable
         {
             if (volumi[i]!=null)
             {
-                if (volumi[i].getTitolo()==titolo)
+                if (volumi[i].getTitolo().compareToIgnoreCase(titolo)==0)
                     return true;
             }
         }
